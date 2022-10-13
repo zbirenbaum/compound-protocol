@@ -76,10 +76,12 @@ jobs:
       - store_artifacts:
           path: ~/junit
       - run:
+          name: Init Test Server
           command: npx hardhat node:test
           background: true
       - run:
-          command: npx hardhat test:local
+          name: Run Tender Tests
+          command: sleep 10 && npx hardhat test:local
     parallelism: 3
     resource_class: xlarge
 
